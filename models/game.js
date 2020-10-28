@@ -15,6 +15,9 @@ const schema = new mongoose.Schema({
   field: {
     type: [Number],
   },
+  latestTweet: {
+    type: String,
+  },
 });
 
 const Game = mongoose.model("Game", schema);

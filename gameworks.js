@@ -28,6 +28,17 @@ const loadGame = async (level) => {
   return game;
 };
 
+const saveGame = async (game) => {
+  await mongoose.connect(`${MONGODB_URI}/${DATABASE_NAME}`, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+  });
+  let dbGame = await Game.findOne({ level: game.level });
+  dbGame = game;
+  await dbGame.save();
+  await mongoose.disconnect();
+};
+
 const startAGame = async (game) => {
   // Set up deck
   game.deck = _.range(1, 2 ** game.level);
@@ -43,18 +54,11 @@ const startAGame = async (game) => {
   game.active = true;
 
   // Make image
-  const latestTweet = await tweetRound(game);
-  game.latestTweet = latestTweet;
+  const latestImage = await tweetRound(game);
+  game.latestImage = latestImage;
 
   // Save game to mongodb
-  await mongoose.connect(`${MONGODB_URI}/${DATABASE_NAME}`, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  });
-  let dbGame = await Game.findOne({ level: game.level });
-  dbGame = game;
-  await dbGame.save();
-  await mongoose.disconnect();
+  await saveGame(game);
 };
 
-module.exports = { startAGame, loadGame };
+module.exports = { startAGame, loadGame, saveGame };

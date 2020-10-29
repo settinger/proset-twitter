@@ -18,6 +18,9 @@ const schema = new mongoose.Schema({
   latestTweet: {
     type: String,
   },
+  latestImage: {
+    type: String,
+  },
 });
 
 const Game = mongoose.model("Game", schema);

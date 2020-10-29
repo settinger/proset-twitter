@@ -28,24 +28,18 @@ const tweetRound = async (game) => {
     .replace(/^data:image\/(png|jpg);base64,/, "");
 
   // Upload image using twitter API, get media ID
-  let latestTweet = client
+  let latestImage = client
     .post("media/upload", { media_data })
     .then((media) => {
       console.log(media.media_id_string);
-      game.latestTweet = media.media_id_string;
+      game.latestImage = media.media_id_string;
       return media.media_id_string;
     })
     .catch((err) => {
       throw err;
     });
 
-  return latestTweet;
-
-  // Generate HTML document
-  // Convert HTML document to canvas
-  // Save canvas as png with twitter's specific image size ratio
-  // Tweet image
-  // Return tweet media ID
+  return latestImage;
 };
 
 const checkTweets = async (game) => {};

@@ -79,9 +79,7 @@ const main = async () => {
     }
   }
 
-  if (game1.active && game2.active) {
-    tweetText += "\n\n";
-  }
+  tweetText += "\n\n";
 
   if (game2.active) {
     // Check each reply for a solution to game 2; stop if a solution is found
@@ -171,4 +169,4 @@ const main = async () => {
 };
 
 // Eventually, set main() to run at 5-minute intervals
-main();
+const run = setInterval(main, 1000 * 60 * 5);

@@ -1,7 +1,6 @@
 require("dotenv").config();
 
 const Game = require("./models/game");
-const Score = require("./models/score");
 const mongoose = require("mongoose");
 
 const twitter = require("twitter");

@@ -97,6 +97,8 @@ const main = async () => {
     if (game2SolutionFound) {
       if (game2Solution == "HKNO") {
         tweetText += `${game2Solver} found solution HONK! 🦢🦢`;
+      } else if (game2Solution == "IKNO") {
+        tweetText += `${game2Solver} found solution OINK! 🐖🐖`;
       } else {
         tweetText += `${game2Solver} found solution ${game2Solution}!`;
       }
@@ -170,3 +172,4 @@ const main = async () => {
 
 // Eventually, set main() to run at 5-minute intervals
 const run = setInterval(main, 1000 * 60 * 5);
+main();

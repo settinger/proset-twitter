@@ -30,7 +30,7 @@ const tweetRound = async (game) => {
   let latestImage = client
     .post("media/upload", { media_data })
     .then((media) => {
-      console.log(media.media_id_string);
+      // console.log(media.media_id_string);
       game.latestImage = media.media_id_string;
       return media.media_id_string;
     })

@@ -18,7 +18,6 @@ const {
   isSolution,
   updateGame,
 } = require("./gameworks");
-const { tweetRound, checkTweets } = require("./tweetworks");
 
 // Connect to MongoDB, check if a Game exists in DB
 // If a game exists, load it
@@ -171,5 +170,5 @@ const main = async () => {
 };
 
 // Eventually, set main() to run at 5-minute intervals
-const run = setInterval(main, 1000 * 60 * 5);
+//const run = setInterval(main, 1000 * 60 * 5);
 main();

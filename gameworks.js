@@ -5,11 +5,12 @@ const _ = require("underscore");
 
 const { tweetRound } = require("./tweetworks");
 
-const MONGODB_URI = "mongodb://127.0.0.1:27017";
-const DATABASE_NAME = "proset-twitter";
+//const MONGODB_URI = "mongodb://127.0.0.1:27017";
+//const DATABASE_NAME = "proset-twitter";
 
 const loadGame = async (level) => {
-  await mongoose.connect(`${MONGODB_URI}/${DATABASE_NAME}`, {
+  //await mongoose.connect(`${MONGODB_URI}/${DATABASE_NAME}`, {
+  await mongoose.connect(`${process.env.MONGODB_URI}`, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   });
@@ -28,7 +29,8 @@ const loadGame = async (level) => {
 };
 
 const saveGame = async (game) => {
-  await mongoose.connect(`${MONGODB_URI}/${DATABASE_NAME}`, {
+  //await mongoose.connect(`${MONGODB_URI}/${DATABASE_NAME}`, {
+  await mongoose.connect(`${process.env.MONGODB_URI}`, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   });

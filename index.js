@@ -61,6 +61,7 @@ const main = async () => {
         game1SolutionFound = true;
         game1Solver = status.user.screen_name;
         game1Solution = status.text.toUpperCase().replace(/^@PROSETBOT /, "");
+        game1Solution = game1Solution.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // Remove diacritics from bot's tweets
         game1Solution = [...game1Solution].sort().join("");
       }
     }
@@ -89,6 +90,7 @@ const main = async () => {
         game2SolutionFound = true;
         game2Solver = status.user.screen_name;
         game2Solution = status.text.toUpperCase().replace(/^@PROSETBOT /, "");
+        game2Solution = game2Solution.normalize('NFD').replace(/[\u0300-\u036f]/g, ''); // Remove diacritics from bot's tweets
         game2Solution = [...game2Solution].sort().join("");
       }
     }

@@ -34,7 +34,7 @@ const main = async () => {
   let game2SolutionFound = false;
 
   if (game1.active || game2.active) {
-    // Fetch replies to latest tweet
+    // Fetch replies to latest tweet -- I think this actually accepts replies to any tweet actually?
     replies = await client
       .get("search/tweets", {
         q: "to:ProsetBot",

@@ -103,6 +103,11 @@ const isSolution = (game, tweet) => {
   } else {
     letterSet = ["p", "q", "r", "s", "t", "u", "v", "w", "x"];
   }
+  
+  // Strip any diacritics from letters
+  // I am doing this solely because I think it will be funny to tweet "mjölk" and have it parsed as a valid answer
+  soln = soln.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
   // Check that solution consists only of the letterset, no duplicates, and at least three of them
   // If that's the case, find the XOR value of the selected cards together
   if (!isValid(soln, letterSet)) {
